@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍫 Happy Chocolate Day ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#fff7f7,#ffd6e7,#8B5A2B);
+overflow:hidden;
+}
+
+.card{
+width:90%;
+max-width:400px;
+padding:35px;
+text-align:center;
+background:rgba(255,255,255,.4);
+backdrop-filter:blur(15px);
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+animation:pop 1s;
+z-index:2;
+}
+
+h1{
+color:#6b3e26;
+font-size:34px;
+}
+
+p{
+margin:15px 0;
+color:#5a3a2b;
+font-size:18px;
+}
+
+.big{
+font-size:70px;
+animation:bounce 2s infinite;
+}
+
+button{
+margin-top:20px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:40px;
+background:#ff4f87;
+color:white;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 8px 20px rgba(255,79,135,.4);
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+background:white;
+padding:30px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,.3);
+transition:.4s;
+z-index:5;
+}
+
+.popup.show{
+transform:translate(-50%,-50%) scale(1);
+}
+
+.popup .choco{
+font-size:90px;
+animation:bounce 1s infinite;
+}
+
+.popup h2{
+color:#6b3e26;
+margin-top:10px;
+}
+
+.popup p{
+color:#ff4f87;
+font-size:22px;
+font-weight:bold;
+}
+
+.close{
+margin-top:15px;
+background:#8B5A2B;
+}
+
+.heart{
+position:absolute;
+color:#ff6ea8;
+font-size:25px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100vh);
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+@keyframes pop{
+from{opacity:0;transform:scale(.7);}
+to{opacity:1;transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<div class="big">🍫</div>
+
+<h1>Happy Chocolate Day ❤️</h1>
+
+<p>
+Wishing you a day full of sweetness,<br>
+love and happiness! 💖
+</p>
+
+<button onclick="openGift()">🎁 Open Chocolate</button>
+
+</div>
+
+<div class="popup" id="gift">
+
+<div class="choco">🍫</div>
+
+<h2>Special Chocolate For You</h2>
+
+<p>Ye Lo... Khaa Lo! 🍫❤️</p>
+
+<button class="close" onclick="closeGift()">Thank You ❤️</button>
+
+</div>
+
+<script>
+
+function openGift(){
+document.getElementById("gift").classList.add("show");
+}
+
+function closeGift(){
+document.getElementById("gift").classList.remove("show");
+}
+
+for(let i=0;i<40;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML=Math.random()>0.5?"❤️":"🤍";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(18+Math.random()*18)+"px";
+h.style.animationDuration=(4+Math.random()*6)+"s";
+document.body.appendChild(h);
+}
+
+</script>
+
+</body>
+</html>
